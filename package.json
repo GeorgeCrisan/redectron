@@ -4,12 +4,20 @@
   "description": "My First Electon Application",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config ./webpack.config.js",
+    "start": "yarn build && electron ./src/app.js"
   },
   "keywords": [
     "ElectronJS",
     "Georgerdp"
   ],
   "author": "George Crisan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
 }
