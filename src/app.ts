@@ -1,7 +1,7 @@
 import {app, BrowserWindow} from 'electron'; 
 
 
-let appWindow
+let appWindow 
 
 let createWindow = () => {
     appWindow = new BrowserWindow({
@@ -12,7 +12,7 @@ let createWindow = () => {
         }
     });
 
-    appWindow.loadFile('index.html');
+    appWindow.loadFile('index.html'); 
 
     appWindow.webContents.openDevTools();
 
