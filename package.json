@@ -1,28 +1,61 @@
 {
   "name": "redectron",
-  "version": "0.0.1",
-  "description": "My First Electon Application",
-  "main": "app.js",
-  "scripts": {
-    "build": "webpack --config ./webpack.config.js",
-    "start": "yarn build && electron ./dist/app.js"
+  "description": "redectron built with JavaScript, ElectronJS and React",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "George Crisan",
+    "email": "georgerdp@gmail.com",
+    "url": "http://jsnstop.com"
   },
-  "keywords": [
-    "ElectronJS",
-    "Georgerdp"
-  ],
-  "author": "George Crisan",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.4",
-    "electron": "^7.1.1",
-    "html-webpack-plugin": "^3.2.0",
+  "build": {
+    "appId": "com.electron.${name}",
+    "productName": "Redectron",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "react-scripts": "^3.2.0"
+  },
+  "homepage": "./",
+  "main": "public/electron.js",
+  "scripts": {
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "rdpdev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -m"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.13",
+    "@rescripts/rescript-env": "^0.0.11",
+    "concurrently": "^5.0.0",
+    "electron": "^7.1.1",
+    "electron-builder": "^21.2.0",
+    "wait-on": "^3.3.0"
   }
 }
